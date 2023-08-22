@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Examples</title>
+</head>
+<body>
+  <!-- Objective 1: Make a button appear on the page when it's first loaded -->
+  <script>
+    var button = document.createElement("button");
+    button.textContent = "Click me!";
+    document.body.appendChild(button);
+  </script>
+
+  <!-- Objective 2: When the button is clicked, display an Alert box -->
+  <script>
+    button.addEventListener("click", function() {
+      alert("Hello, you clicked the button!");
+    });
+  </script>
+
+  <!-- Objective 3: Create a div that changes background color on hover -->
+  <div id="color-changing-div" style="width: 200px; height: 200px; background-color: lightblue;"></div>
+
+  <script>
+    var div = document.getElementById("color-changing-div");
+    var originalColor = div.style.backgroundColor;
+
+    div.addEventListener("mouseenter", function() {
+      div.style.backgroundColor = "lightgreen";
+    });
+
+    div.addEventListener("mouseleave", function() {
+      div.style.backgroundColor = originalColor;
+    });
+  </script>
+
+  <!-- Objective 4: Click on paragraph to change text color -->
+  <p id="color-changing-paragraph">Click me to change color</p>
+
+  <script>
+    var paragraph = document.getElementById("color-changing-paragraph");
+    var colors = ["red", "blue", "green", "orange", "purple", "teal"];
+
+    paragraph.addEventListener("click", function() {
+      var randomIndex = Math.floor(Math.random() * colors.length);
+      paragraph.style.color = colors[randomIndex];
+    });
+  </script>
+
+  <!-- Objective 5: Add a span to an empty div on button click -->
+  <button id="add-name-button">Add Name</button>
+  <div id="name-container"></div>
+
+  <script>
+    var addButton = document.getElementById("add-name-button");
+    var nameContainer = document.getElementById("name-container");
+
+    addButton.addEventListener("click", function() {
+      var span = document.createElement("span");
+      span.textContent = "Thommy Knoles";
+      nameContainer.appendChild(span);
+    });
+  </script>
+
+  <!-- Objective 6: Add friend names to a list -->
+  <button id="add-friends-button">Add Friends</button>
+  <ul id="friends-list"></ul>
+
+  <script>
+    var addFriendsButton = document.getElementById("add-friends-button");
+    var friendsList = document.getElementById("friends-list");
+
+    var friendNames = [
+      "Alice", "Bob", "Charlie", "David", "Eve", 
+      "Frank", "Grace", "Helen", "Isaac", "Jane"
+    ];
+
+    addFriendsButton.addEventListener("click", function() {
+      for (var i = 0; i < friendNames.length; i++) {
+        var li = document.createElement("li");
+        li.textContent = friendNames[i];
+        friendsList.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>
